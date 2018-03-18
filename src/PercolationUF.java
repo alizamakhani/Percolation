@@ -15,10 +15,10 @@
  */
 
 public class PercolationUF implements IPercolate {
-	public final int OUT_BOUNDS = -1;
-	public boolean[][] myGrid;
-	public IUnionFind myFinder;
-	public int numOpenSites;
+	private final int OUT_BOUNDS = -1;
+	private boolean[][] myGrid;
+	private IUnionFind myFinder;
+	private int numOpenSites;
 	private final int VTOP;
 	private final int VBOTTOM;
 
@@ -40,7 +40,7 @@ public class PercolationUF implements IPercolate {
 	 * based on row-major ordering of cells in a two-dimensional grid. However,
 	 * if (row,col) is out-of-bounds, return OUT_BOUNDS.
 	 */
-	public int getIndex(int row, int col) {
+	private int getIndex(int row, int col) {
 		if(row>=myGrid.length || row<0 || col>=myGrid.length || col<0) {
 			throw new IndexOutOfBoundsException("OUT OF BOUNDS");
 		}
