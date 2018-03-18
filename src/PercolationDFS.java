@@ -31,7 +31,7 @@ public class PercolationDFS implements IPercolate {
 		for (int[] row : myGrid)
 			Arrays.fill(row, BLOCKED);
 	}
-
+	@Override
 	public void open(int row, int col) {
 		if (myGrid[row][col] != BLOCKED)
 			return;
@@ -42,11 +42,11 @@ public class PercolationDFS implements IPercolate {
 		}
 		updateOnOpen(row,col);
 	}
-
+	@Override
 	public boolean isOpen(int row, int col) {
 		return myGrid[row][col] != BLOCKED;
 	}
-
+	@Override
 	public boolean isFull(int row, int col) {
 		return myGrid[row][col] == FULL;
 	}
@@ -60,7 +60,7 @@ public class PercolationDFS implements IPercolate {
 			}
 		}
 	}
-
+	
 	protected void updateOnOpen(int row, int col) {
 		clearFull();
 		for (int k = 0; k < myGrid[0].length; k++)

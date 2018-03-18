@@ -1,7 +1,64 @@
-Name: [firstname lastname]
-NetID: [abc123]
-Hours Spent: [Give an exact (decimal) number here]
-Consulted With: [Provide names or NetIDs of any students, TAs, or professors you consulted with on the assignment. If you did not consult with anyone, you must explicitly write NONE.]
-Resources Used: [Any books, papers, or online resources. If you did not use any outside resources, you must explicitly write NONE]
-Difficulty level: [Given an integer between 1 (Very Easy) to 10 (Extremely Difficult)]
-Impressions: [Your answer here]
+Name: [Aliza Makhani]
+NetID: [am491]
+Hours Spent: [10.5]
+Consulted With: [NONE.]
+Resources Used: [Stack Overflow, Java API]
+Difficulty level: [8]
+Impressions: [Instructions are hard to follow sometimes since finding information for one specific class might be located in 3 different locations in the document.]
+
+1. Percolation DFS: For a constant T=100, when N=10, 20, 40, and 80 the run times respectively are
+	0.0290, 0.0741, 0.2594, and 2.3781. Run time does not increase constantly, from N=10 to 20 the run time
+	increases by 2.6 times, from N=20 to 40 run time increases by 3.5 times, and from N=40 to 80 run time 
+	increases by 9.2 times.
+   Percolation DFS Fast: For a constant T=100, when N=10, 20, 40, and 80 the run times respectively are
+	0.0191, 0.0560, 0.1032, and 0.2032. Run times increase roughly constantly, from N=10 to 20 the run time
+	increases by 2.9 times, from N=20 to 40 run time increases by 1.8 times, and from N=40 to 80 run time 
+	increases by 2.0 times.
+   Percolation UF with QuickFind: For a constant T=100, when N=10, 20, 40, and 80 the run times respectively are
+	0.0155, 0.0292, 0.1917, and 2.3010. Run time does not increase constantly, from N=10 to 20 the run time
+	increases by 1.9 times, from N=20 to 40 run time increases by 6.6 times, and from N=40 to 80 run time 
+	increases by 12.0 times.
+   Percolation UF with QuickUWPC: For a constant T=100, when N=10, 20, 40, and 80 the run times respectively are
+	0.0121, 0.0275, 0.0857, and 0.1555. Run times increase roughly constantly, from N=10 to 20 the run time
+	increases by 2.3 times, from N=20 to 40 run time increases by 3.1 times, and from N=40 to 80 run time 
+	increases by 1.8 times.
+	
+2. Percolation DFS: For a constant N=20, when T=10, 20, 40, and 80 the run times respectively are
+	0.0337, 0.0354, 0.0486, and 0.0565. Run times increase roughly constantly, from T=10 to 20 the run time
+	increases by 1.1 times, from T=20 to 40 run time increases by 1.4 times, and from T=40 to 80 run time 
+	increases by 1.2 times.
+   Percolation DFS Fast: For a constant N=20, when T=10, 20, 40, and 80 the run times respectively are
+	0.0115, 0.0150, 0.0197, and 0.0412. Run times increase roughly constantly, from T=10 to 20 the run time
+	increases by 1.3 times, from T=20 to 40 run time increases by 1.3 times, and from T=40 to 80 run time 
+	increases by 2.1 times.
+   Percolation UF with QuickFind: For a constant T=100, when N=10, 20, 40, and 80 the run times respectively are
+	0.0112, 0.0150, 0.0241, and 0.0282. Run times increase roughly constantly, from N=10 to 20 the run time
+	increases by 1.3 times, from N=20 to 40 run time increases by 1.6 times, and from N=40 to 80 run time 
+	increases by 1.2 times.
+   Percolation UF with QuickUWPC: For a constant T=100, when N=10, 20, 40, and 80 the run times respectively are
+	0.0081, 0.0141, 0.0161, and 0.0236. Run times increase roughly constantly, from N=10 to 20 the run time
+	increases by 1.7 times, from N=20 to 40 run time increases by 1.1 times, and from N=40 to 80 run time 
+	increases by 1.5 times.
+
+3. Percolation DFS: It is likely O(T*N^4). Every time we double N, grid size increases by N^2 and run time seems to
+	increase by this value squared, (N^2)^2. Doubling the number of experiments T has a relatively constant, linear effect 
+	on the run time.
+   Percolation DFS Fast: It is likely O(T*N^2). Doubling N increases grid size by N^2 and run time increases by this 
+   	amount. Doubling the number of experiments T has a relatively constant, linear effect on run time.
+   Percolation UF with QuickFind: It is likely O(T*N^4). Every time we double N, grid size increases by N^2 and run time seems to
+	increase by this value squared, (N^2)^2. Doubling the number of experiments T has a relatively constant, linear effect 
+	on the run time.
+   Percolation UF with QuickUWPC: It is likely O(T*N^2). Doubling N increases grid size by N^2 and run time increases by this 
+   	amount. Doubling the number of experiments T has a relatively constant, linear effect on run time.
+
+4. Percolation DFS: N is approximately 1550.
+   Percolation DFS Fast: N is approximately 7750.
+   Percolation UF with QuickFind: N is approximately 1650.
+   Percolation UF with QuickUWPC: N is approximately 7250.
+ 
+5. Percolation DFS: myGrid stores 2 int arrays each taking up 4N memory. Thus, the total memory used is 16N^2 for myGrid. 
+	myOpenCount stores an int and uses 4 bytes of memory. Total memory used is approximately 16N^2 + 4 bytes.
+   Percolation UF: myGrid stores 2 boolean arrays each taking up N memory. Thus, the total memory for myGrid is N^2. Using QuickFind, 
+   	myFinder contains myComponents of 4 bytes and myID an int[] which takes up 4N space. Using QuickUWPC, myFinder contains 2 int arrays
+   	each taking up 4N space + myComponents which takes up 4 bytes. The remaining ints numOpenSites, VTOP, and VBOTTOM are 12 bytes total. 
+   	Thus, the total memory used is N^2 + 4N + 16 bytes using QuickFind or N^2 + 8N + 16 bytes using QuickUWPC.
